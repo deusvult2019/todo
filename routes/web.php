@@ -22,5 +22,5 @@ Auth::routes();
 Route::get('/home', 'ToDoController@index')->name('home');
 Route::post('/home','ToDoController@vytvor');
 Route::put('/home/{task}','ToDoController@hotovo')->name('task.complete');
-
+Route::put('/home','ToDoController@vyhladat');
 

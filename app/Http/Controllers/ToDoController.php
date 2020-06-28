@@ -15,7 +15,18 @@ class ToDoController extends Controller
           'tasks' => $tasks,
     ]);
   }
-
+public function vyhladat(Request $request)
+{
+  $this->validate($request, [
+    'search' => 'required|max:255',
+]);
+ $search = $request->get('search');
+ $tasks = $request->user()->task()->where('uloha','like', '%'.$search.'%')->paginate(3);
+ 
+ return view('home', [
+  'tasks' => $tasks,
+]);
+}
 
 
   public function vytvor(Request $request)

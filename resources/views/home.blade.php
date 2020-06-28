@@ -21,6 +21,15 @@
         <input type="submit">
         
         </form> 
+
+        <form action="/home" method="post">
+        @csrf
+        @method('put')
+        <input type="search" name="search" placeholder="Vyhladat Ulohu">
+        <input type="submit">
+        
+        </form> 
+
     
         <table class="table table-striped task-table">  
             @foreach ($tasks as $task)
@@ -37,7 +46,7 @@
                 <td>
                     
                     <form action="{{ route('task.complete',$task->id)}}" method="POST">           
-                        <button type="submit" id="complete-task-{{ $task->id }}" class="btn btn-secondary">
+                        <button type="submit" class="btn btn-secondary">
                            Dokoncit
                         </button>
                         @csrf
